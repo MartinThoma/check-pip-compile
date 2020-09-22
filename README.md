@@ -1,10 +1,10 @@
 # check_pip_compile
 
-Automatically verify if you need to run pip-compile.
+Automatically verify if you need to run [pip-compile](https://pypi.org/project/pip-tools/).
 
 ## Usage
 
-You can use it as a pre-commit hook:
+You can use it as a [pre-commit](https://pre-commit.com/) hook:
 
 ```yaml
 -   repo: https://github.com/MartinThoma/check-pip-compile

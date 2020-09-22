@@ -1,0 +1,8 @@
+-   id: check-pip-compile
+    name: Check pip-compile
+    description: Check if pip-compile needs to be run
+    entry: check_pip_compile
+    language: python
+    always_run: true
+    pass_filenames: false
+    args: ['.']

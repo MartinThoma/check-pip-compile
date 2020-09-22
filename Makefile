@@ -1,0 +1,23 @@
+maint:
+	pre-commit autoupdate && pre-commit run --all-files
+	pip-compile -U requirements-lint.in
+	pip-compile -U requirements-dev.in
+	pip-compile -U setup.py
+
+upload:
+	make clean
+	python setup.py sdist bdist_wheel && twine upload dist/*
+
+clean:
+	python setup.py clean --all
+	pyclean .
+	rm -rf *.pyc build dist tests/reports docs/build .pytest_cache .tox .coverage html/
+	rm -rf mpu.egg-info lambda.zip venv-lambda
+	rm -rf __pycache__ mpu/datastructures/trie/__pycache__ mpu/__pycache__ mpu/units/__pycache__ tests/__pycache__
+
+mutation-test:
+	mutmut run
+
+mutmut-results:
+	mutmut junitxml --suspicious-policy=ignore --untested-policy=ignore > mutmut-results.xml
+	junit2html mutmut-results.xml mutmut-results.html

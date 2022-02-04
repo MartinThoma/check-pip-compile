@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # Core Library modules
 import datetime
 import os
@@ -60,7 +58,8 @@ def check_file(in_file: Optional[str], txt_file: Optional[str]) -> bool:
         txt_age = datetime.datetime.fromtimestamp(os.path.getmtime(txt_file))
         if in_age > txt_age:
             print(
-                f"Run 'pip-compile {in_file}' ({in_age}), as {txt_file} ({txt_age}) might be outdated"
+                f"Run 'pip-compile {in_file}' ({in_age}), as {txt_file} "
+                f"({txt_age}) might be outdated"
             )
             succeeded = False
     return succeeded

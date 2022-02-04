@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """Tests for `check_pip_compile` package."""
 
 # Third party modules
